@@ -1,0 +1,283 @@
+/* Estilos generales del cuerpo del documento */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Color de fondo principal */
+    background-image: url('img/fondo copy.jpg'); /* Imagen de fondo */
+}
+
+/* Estilos del encabezado */
+header {
+    background-color: #343a40; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 20px; /* Espaciado interior */
+    text-align: center; /* Alineación del texto */
+    position: relative; /* Posición relativa */
+}
+
+/* Estilos de la barra de navegación */
+nav ul {
+    list-style-type: none; /* Elimina viñetas de la lista */
+    padding: 0; /* Elimina relleno por defecto */
+    text-align: center; /* Alineación del texto */
+    background-color: #495057; /* Color de fondo */
+}
+
+nav ul li {
+    display: inline; /* Elementos de lista en línea */
+    margin-right: 15px; /* Margen derecho entre elementos */
+}
+
+nav ul li a {
+    text-decoration: none; /* Sin subrayado de enlaces */
+    color: white; /* Color del texto */
+    padding: 14px 20px; /* Relleno interno */
+    display: inline-block; /* Bloque en línea */
+}
+
+nav ul li a:hover {
+    background-color: #343a40; /* Color de fondo al pasar el ratón */
+}
+
+/* Contenedor principal */
+.container {
+    width: 80%; /* Ancho del contenedor */
+    margin: auto; /* Centrado horizontal */
+    overflow: hidden; /* Controla el desbordamiento */
+}
+
+/* Estilos del banner */
+.banner {
+    background-image: url('img/fondo copy.jpg'); /* Imagen de fondo */
+    height: 400px; /* Altura del banner */
+    text-align: center; /* Alineación del texto */
+    color: #343a40; /* Color del texto */
+    display: flex; /* Flexbox para alinear contenido */
+    flex-direction: column; /* Dirección de columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+}
+
+.banner h1 {
+    font-size: 3em; /* Tamaño de fuente del título */
+    padding: 20px; /* Relleno interior */
+    text-align: center; /* Alineación del texto */
+}
+
+/* Estilos de las secciones */
+.section {
+    padding: 20px; /* Relleno interior */
+    background: white; /* Color de fondo */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.section h2 {
+    text-align: center; /* Alineación del texto */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Estilos de los servicios y proyectos */
+.services, .projects {
+    display: flex; /* Flexbox para alinear elementos */
+    flex-wrap: wrap; /* Envuelve elementos en varias líneas */
+    justify-content: space-around; /* Distribución del espacio */
+}
+
+.service, .project {
+    flex: 1 1 calc(33.333% - 20px); /* Tamaño y margen de los elementos */
+    margin: 10px; /* Margen exterior */
+    padding: 20px; /* Relleno interior */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    background-color: #fff; /* Color de fondo */
+    border-radius: 8px; /* Borde redondeado */
+}
+
+/* Estilos del formulario de contacto */
+.contact form {
+    display: flex; /* Flexbox para el formulario */
+    flex-direction: column; /* Dirección de columna */
+}
+
+.contact form input, .contact form textarea {
+    padding: 10px; /* Relleno interior */
+    margin: 5px 0; /* Margen exterior */
+    border: 1px solid #ccc; /* Borde del campo */
+}
+
+.contact form button {
+    padding: 10px; /* Relleno interior */
+    background: #343a40; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor */
+}
+
+/* Estilos del carrusel de imágenes */
+.carousel {
+    position: relative; /* Posición relativa */
+    max-width: 100%; /* Ancho máximo */
+    margin: auto; /* Centrado horizontal */
+    overflow: hidden; /* Controla el desbordamiento */
+}
+
+.carousel-images {
+    display: flex; /* Flexbox para las imágenes */
+    transition: transform 0.5s ease-in-out; /* Transición suave */
+}
+
+.carousel-images img {
+    width: 80%; /* Ancho del 80% del contenedor */
+    max-height: 400px; /* Altura máxima de las imágenes */
+    object-fit: cover; /* Ajuste de la imagen */
+    display: block; /* Mostrar como bloque */
+    margin: auto; /* Centrado horizontal */
+}
+
+/* Estilos de los botones de navegación del carrusel */
+.prev, .next {
+    cursor: pointer; /* Cambia el cursor */
+    position: absolute; /* Posición absoluta */
+    top: 50%; /* Posiciona desde la mitad superior */
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Altura del botón */
+    padding: 0; /* Sin relleno */
+    margin-top: -25px; /* Compensa la mitad de la altura */
+    color: white; /* Color del texto */
+    font-weight: bold; /* Negrita */
+    font-size: 30px; /* Tamaño de la fuente */
+    line-height: 50px; /* Altura de línea */
+    text-align: center; /* Alineación del texto */
+    transition: 0.6s ease; /* Transición */
+    user-select: none; /* No seleccionable */
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
+    border-radius: 70%; /* Borde redondeado */
+}
+
+.prev {
+    left: 10px; /* Posición a la izquierda */
+}
+
+.next {
+    right: 10px; /* Posición a la derecha */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Color de fondo al pasar el ratón */
+}
+
+/* Estilos del pie de página */
+footer {
+    text-align: center; /* Alineación del texto */
+    padding: 10px; /* Relleno interior */
+    background-color: #495057; /* Color de fondo */
+    color: white; /* Color del texto */
+}
+
+/* Estilos de la información de contacto */
+.contact-info {
+    font-size: 2px; /* Tamaño de fuente */
+}
+
+.social-links {
+    list-style-type: none; /* Sin viñetas */
+    padding: 0; /* Sin relleno */
+    display: flex; /* Flexbox para alinear elementos */
+    justify-content: center; /* Centrado horizontal */
+    gap: 10px; /* Espacio entre elementos */
+}
+
+.social-links li {
+    display: inline-block; /* Elementos de lista en línea */
+}
+
+.social-links li img {
+    width: 50px; /* Ancho de imagen */
+    height: 50px; /* Altura de imagen */
+    border-radius: 50%; /* Borde redondeado */
+}
+
+.contact-phone {
+    position: absolute; /* Posición absoluta */
+    top: 10px; /* Posición desde arriba */
+    right: 20px; /* Posición desde la derecha */
+    background-color: #f1f1f1; /* Color de fondo */
+    padding: 8px 16px; /* Relleno interior */
+    border-radius: 5px; /* Borde redondeado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    font-size: 14px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+}
+
+.contact-phone a {
+    text-decoration: none; /* Sin subrayado */
+    color: #333; /* Color del texto */
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Cambia la dirección a columna */
+    }
+}
+
+    nav ul li {
+        display: block; /* Elementos de lista como bloque */
+        margin-right: 0; /* Sin margen derecho */
+    }
+
+    .container {
+        width: 100%; /* Ancho completo */
+        padding: 0 10px; /* Relleno interior */
+    }
+
+    .services, .projects {
+        flex-direction: column; /* Cambia la dirección a columna */
+        align-items: center; /* Centra verticalmente */
+    }
+
+    .service, .project {
+        flex: 1 1 100%; /* Ancho completo */
+        margin: 10px 0; /* Margen exterior */
+    }
+
+    .banner h1 {
+        font-size: 2em; /* Tamaño de fuente del título */
+    }
+
+
+
+
+    .cookie-consent {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        display: none;
+    }
+    
+    .cookie-consent p {
+        margin: 0;
+        padding: 5px;
+    }
+    
+    .cookie-consent button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    
+    .cookie-consent button:hover {
+        background-color: #45a049;
+    }
+    
