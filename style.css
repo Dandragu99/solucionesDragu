@@ -126,7 +126,8 @@ nav ul li a:hover {
 }
 
 .carousel-images img {
-    width: 80%; /* Ancho del 80% del contenedor */
+    width: 100%; /* Ancho del 80% del contenedor */
+    height: auto;
     max-height: 400px; /* Altura máxima de las imágenes */
     object-fit: cover; /* Ajuste de la imagen */
     display: block; /* Mostrar como bloque */
@@ -196,6 +197,7 @@ footer {
     border-radius: 50%; /* Borde redondeado */
 }
 
+/* Estilos del teléfono de contacto */
 .contact-phone {
     position: absolute; /* Posición absoluta */
     top: 10px; /* Posición desde arriba */
@@ -217,12 +219,16 @@ footer {
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column; /* Cambia la dirección a columna */
+        align-items: center; /* Centra los elementos horizontalmente */
+        padding: 0; /* Sin padding */
+        margin: 0; /* Sin margen */
     }
-}
 
     nav ul li {
         display: block; /* Elementos de lista como bloque */
-        margin-right: 0; /* Sin margen derecho */
+        margin: 10px 0; /* Margen vertical */
+        width: 100%; /* Ancho completo */
+        text-align: center; /* Alineación centrada */
     }
 
     .container {
@@ -242,9 +248,151 @@ footer {
 
     .banner h1 {
         font-size: 2em; /* Tamaño de fuente del título */
+        text-align: center; /* Alineación centrada */
     }
 
+    /* Ajustes específicos para el contenido de los proyectos */
+    .project h3 {
+        font-size: 1.5em; /* Tamaño de fuente del subtítulo */
+        text-align: center; /* Alineación centrada del subtítulo */
+    }
 
+    .project p {
+        font-size: 1em; /* Tamaño de fuente del párrafo */
+        text-align: justify; /* Alineación justificada del texto */
+        padding: 0 10px; /* Padding para mejorar la lectura */
+    }
+
+    .carousel-images img {
+        width: 100%; /* Ancho completo de las imágenes */
+        height: auto; /* Altura automática para mantener la proporción */
+        max-height: 300px; /* Altura máxima de las imágenes */
+    }
+
+    .carousel {
+        max-height: 300px; /* Altura máxima del carrusel */
+    }
+
+    .prev, .next {
+        width: 40px; /* Ancho del botón de navegación */
+        height: 40px; /* Altura del botón de navegación */
+        font-size: 24px; /* Tamaño de la fuente del botón de navegación */
+        line-height: 40px; /* Altura de línea del botón de navegación */
+        top: calc(50% - 20px); /* Ajuste de posición para centrar verticalmente */
+    }
+
+    /* Ajustes adicionales */
+    header h1 {
+        font-size: 1.8em; /* Tamaño de fuente del encabezado */
+        text-align: center; /* Alineación centrada */
+    }
+
+    header p {
+        font-size: 1em; /* Tamaño de fuente del subtítulo */
+        text-align: center; /* Alineación centrada */
+    }
+    .contact-phone {
+        font-size: 0.7em; /* Tamaño de fuente del enlace de contacto */
+        padding: 2px 5px; /* Ajustar el padding si es necesario */
+    }
+
+    .contact-phone a {
+        font-size: 1.0em; /* Tamaño de fuente del enlace de contacto */
+        display: block; /* Display como bloque */
+        text-align: center; /* Alineación centrada */
+        margin: 10px 0; /* Margen vertical */
+    }
+
+    .contact-info ul {
+        padding: 0; /* Sin padding */
+        margin: 0; /* Sin margen */
+        list-style: none; /* Sin estilo de lista */
+    }
+
+    .contact-info ul li {
+        margin: 10px 0; /* Margen vertical */
+    }
+
+    .contact-info ul li a img {
+        width: 30px; /* Ajusta el tamaño de los iconos */
+        height: auto; /* Mantiene la proporción */
+    }
+}
+@media (min-width: 1024px) {
+    nav ul {
+        flex-direction: row; /* Cambia la dirección a fila */
+        justify-content: space-around; /* Distribuye uniformemente los elementos */
+    }
+
+    nav ul li {
+        display: inline-block; /* Elementos de lista en línea */
+        margin-right: 20px; /* Margen derecho entre elementos */
+    }
+
+    .container {
+        width: 80%; /* Ancho reducido para centrado */
+        margin: 0 auto; /* Centrado automático */
+        padding: 0 20px; /* Relleno interior */
+    }
+
+    .services, .projects {
+        flex-direction: row; /* Cambia la dirección a fila */
+        justify-content: space-between; /* Distribuye uniformemente los elementos */
+    }
+
+    .service, .project {
+        flex: 1 1 calc(33.333% - 20px); /* Tres elementos por fila con espacio entre ellos */
+        margin: 10px; /* Margen exterior */
+    }
+
+    .banner h1 {
+        font-size: 3em; /* Tamaño de fuente del título */
+    }
+
+    .carousel-images img {
+        width: calc(100% / 3); /* Tres imágenes por fila */
+        height: auto; /* Altura automática para mantener la proporción */
+        max-height: 400px; /* Altura máxima de las imágenes */
+    }
+
+    .carousel {
+        max-height: 400px; /* Altura máxima del carrusel */
+    }
+
+    .prev, .next {
+        width: 50px; /* Ancho del botón de navegación */
+        height: 50px; /* Altura del botón de navegación */
+        font-size: 28px; /* Tamaño de la fuente del botón de navegación */
+        line-height: 50px; /* Altura de línea del botón de navegación */
+        top: calc(50% - 25px); /* Ajuste de posición para centrar verticalmente */
+    }
+
+    header h1 {
+        font-size: 2.5em; /* Tamaño de fuente del encabezado */
+    }
+
+    header p {
+        font-size: 1.2em; /* Tamaño de fuente del subtítulo */
+    }
+
+    .contact-phone a {
+        font-size: 1.5em; /* Tamaño de fuente del enlace de contacto */
+    }
+
+    .contact-info ul {
+        display: flex; /* Elementos de lista en línea */
+        justify-content: center; /* Centrados horizontalmente */
+    }
+
+    .contact-info ul li {
+        margin: 0 10px; /* Margen horizontal */
+    }
+
+    .contact-info ul li a img {
+        width: 40px; /* Tamaño ajustado de los iconos */
+        height: auto; /* Mantiene la proporción */
+    }
+}
 
 
     .cookie-consent {

@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>SOLUCIONES DRAGU</title>
+    <meta name="description" content="Soluciones Dragu ofrece servicios de reformas y renovaciones para el hogar con más de 20 años de experiencia. Calidad y experiencia al mejor precio.">
 </head>
 <body>
-     <!-- Encabezado de la página con nombre, subtítulo y contacto -->
+    <!-- Encabezado de la página con nombre, subtítulo y contacto -->
     <header>
         <h1>SOLUCIONES DRAGU</h1>
+        <h2>Si buscas una reforma has venido al lugar adecuado</h2>
         <p>Tu mejor opción para renovar tu hogar</p>
         <div class="contact-phone">
             <!-- Enlace directo a número de teléfono -->
@@ -18,7 +20,7 @@
     </header>
     <!-- Barra de navegación con enlaces a secciones internas -->
     <nav>
-    <!-- Sección de banner con mensaje de bienvenida -->
+        <!-- Sección de banner con mensaje de bienvenida -->
         <ul>
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#servicios">Servicios</a></li>
@@ -31,7 +33,7 @@
         <h1>Bienvenido a Reformas Dragu</h1>
         <p>¡Calidad y experiencia al mejor precio!</p>
     </div>
-     <!-- Contenedor principal con secciones de servicios, proyectos y galería -->
+    <!-- Contenedor principal con secciones de servicios, proyectos y galería -->
     <div class="container">
         <!-- Sección de Servicios -->
         <section class="section" id="servicios">
@@ -62,12 +64,55 @@
             <!-- Lista de proyectos realizados -->
             <div class="projects">
                 <div class="project">
-                    <h3>Reforma de Cocina</h3>
-                    <p>Transformación completa de cocinas con materiales de alta calidad.</p>
+                    <h3>Remodelación de exteriores</h3>
+                    <p>Transformación completa de porches con materiales de alta calidad.</p>
+                    <div class="carousel">
+                        <div class="carousel-images">
+                            <img src="img\img2\porche\IMG-20240630-WA0032.jpg" alt="Proyecto porche 1">
+                            <img src="img\img2\porche\IMG-20240630-WA0033.jpg" alt="Proyecto porche 2">
+                            <img src="img\img2\porche\IMG-20240630-WA0035.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0036.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0037.jpg" alt="Proyecto porche 3">
+                            <img src="img/img2/porche/IMG-20240630-WA0038.jpg" alt="Proyecto porche 3">
+                            <img src="img/img2/porche/IMG-20240630-WA0039.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0040.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0041.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0042.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0043.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0044.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0045.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0046.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0047.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0048.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0049.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0050.jpg" alt="Proyecto porche 3">
+                            <img src="img\img2\porche\IMG-20240630-WA0052.jpg" alt="Proyecto porche 3">
+                        </div>
+                        <a class="prev" onclick="changeSlide(this.parentElement, -1)">&#10094;</a>
+                        <a class="next" onclick="changeSlide(this.parentElement, 1)">&#10095;</a>
+                    </div>
                 </div>
                 <div class="project">
                     <h3>Renovación de Baños</h3>
                     <p>Modernización de baños para un espacio más funcional y elegante.</p>
+                     <!-- Nuevo carrusel para proyectos de baños -->
+                     <div class="carousel">
+                        <div class="carousel-images">
+                            <img src="img\IMG-20240630-WA0022.jpg" alt="Proyecto 1">
+                            <img src="img\IMG-20240630-WA0023.jpg" alt="Proyecto 2">
+                            <img src="img\IMG-20240630-WA0024.jpg" alt="Proyecto 3">
+                            <img src="img\IMG-20240630-WA0025.jpg" alt="Proyecto 4">
+                            <img src="img\IMG-20240630-WA0026.jpg" alt="Proyecto 5">
+                            <img src="img\IMG-20240630-WA0027.jpg" alt="Proyecto 6">
+                            <img src="img\IMG-20240630-WA0028.jpg" alt="Proyecto 7">
+                            <img src="img\IMG-20240630-WA0029.jpg" alt="Proyecto 8">
+                            <img src="img\IMG-20240630-WA0030.jpg" alt="Proyecto 9">
+                            <img src="img\IMG-20240630-WA0031.jpg" alt="Proyecto 10">
+                        </div>
+                        <a class="prev" onclick="changeSlide(this.parentElement, -1)">&#10094;</a>
+                        <a class="next" onclick="changeSlide(this.parentElement, 1)">&#10095;</a>
+                    </div>
+                </div>
                 </div>
                 <div class="project">
                     <h3>Ampliaciones</h3>
@@ -82,7 +127,6 @@
                 <!-- Imágenes del carrusel con controles de navegación -->
                 <div class="carousel-images">
                     <!-- Imágenes de proyectos -->
-                    <!-- Se omite listado detallado de imágenes por brevedad -->
                     <img src="img/2.jpg" alt="Proyecto 1">
                     <img src="img/3.jpg" alt="Proyecto 2">
                     <img src="img/4.jpg" alt="Proyecto 3">
@@ -132,9 +176,9 @@
         <!-- Enlaces a redes sociales -->
         <div class="contact-info">
             <ul class="social-links">
-                <li><a href="https://www.facebook.com/profile.php?id=100070494976949" target="_blank"><img src="img/facebook.png" alt="Facebook"></a></li>
-                <li><a href="https://www.instagram.com/soluciones_dragu/" target="_blank"><img src="img/instagram.jpg" alt="Instagram"></a></li>
-                <li><a href="https://wa.me/34633721115" target="_blank"><img src="img/whatsapp.png" alt="WhatsApp"></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100070494976949" target="_blank" rel="noopener noreferrer"><img src="img/facebook.png" alt="Facebook"></a></li>
+                <li><a href="https://www.instagram.com/soluciones_dragu/" target="_blank" rel="noopener noreferrer"><img src="img/instagram.jpg" alt="Instagram"></a></li>
+                <li><a href="https://wa.me/34633721115" target="_blank" rel="noopener noreferrer"><img src="img/whatsapp.png" alt="WhatsApp"></a></li>
             </ul>
         </div>
     </section>
@@ -149,6 +193,6 @@
         <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. Al utilizar nuestro sitio web, aceptas todas las cookies de acuerdo con nuestra <a href="#" target="_blank">Política de Cookies</a>.</p>
         <button onclick="acceptCookies()">Aceptar</button>
         <button onclick="revokeCookies()">Rechazar</button>
-    </div>    
+    </div>
 </body>
 </html>

@@ -16,7 +16,7 @@ const acceptCookies = () => {
   setCookie("cookieConsent", "accepted", 30); // Establece una cookie "cookieConsent" que expira en 30 días
   const cookieConsentElement = document.getElementById("cookieConsent");
   if (cookieConsentElement) {
-      cookieConsentElement.style.display = "none"; // Oculta el mensaje de cookies
+    cookieConsentElement.style.display = "none"; // Oculta el mensaje de cookies
   }
 };
 
@@ -25,7 +25,7 @@ const revokeCookies = () => {
   document.cookie = "cookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // Elimina la cookie "cookieConsent"
   const cookieConsentElement = document.getElementById("cookieConsent");
   if (cookieConsentElement) {
-      cookieConsentElement.style.display = "block"; // Muestra nuevamente el mensaje de cookies
+    cookieConsentElement.style.display = "block"; // Muestra nuevamente el mensaje de cookies
   }
 };
 
@@ -33,16 +33,23 @@ const revokeCookies = () => {
 const checkCookieConsent = () => {
   const cookieConsent = getCookie("cookieConsent");
   if (cookieConsent === "accepted") {
-      const cookieConsentElement = document.getElementById("cookieConsent");
-      if (cookieConsentElement) {
-          cookieConsentElement.style.display = "none"; // Oculta el mensaje de cookies si ya se ha aceptado
-      }
+    const cookieConsentElement = document.getElementById("cookieConsent");
+    if (cookieConsentElement) {
+      cookieConsentElement.style.display = "none"; // Oculta el mensaje de cookies si ya se ha aceptado
+    }
   }
 };
 
 // Función para cambiar la diapositiva del carrusel
-const changeSlide = (increment, totalSlides, currentSlide, slideWidth, carouselImages) => {
+const changeSlide = (carousel, increment) => {
+  const carouselImages = carousel.querySelector(".carousel-images");
+  let currentSlide = parseInt(carousel.dataset.currentSlide) || 0;
+  const totalSlides = carouselImages.children.length / 2; // Número total de diapositivas únicas
+  const slideWidth = carouselImages.children[0].clientWidth; // Ancho de cada diapositiva
+
   currentSlide = (currentSlide + increment + totalSlides) % totalSlides;
+  carousel.dataset.currentSlide = currentSlide; // Actualiza el índice de la diapositiva actual
+
   const offset = -currentSlide * slideWidth; // Calcula el desplazamiento en píxeles
   carouselImages.style.transform = `translateX(${offset}px)`; // Aplica la transformación CSS para cambiar la diapositiva
 };
@@ -53,15 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
   checkCookieConsent();
 
   // Configuración del carrusel
-  const container = document.querySelector(".container");
-  if (container) {
-    const carousel = container.querySelector(".carousel");
+  document.querySelectorAll(".carousel").forEach(carousel => {
     const carouselImages = carousel.querySelector(".carousel-images");
     const prevButton = carousel.querySelector(".prev");
     const nextButton = carousel.querySelector(".next");
 
     let currentSlide = 0; // Inicializa el índice de la diapositiva actual
-    const totalSlides = carouselImages.children.length; // Número total de diapositivas
+    const totalSlides = carouselImages.children.length / 2; // Número total de diapositivas únicas
     const slideWidth = carouselImages.children[0].clientWidth; // Ancho de cada diapositiva
 
     // Clona las diapositivas para crear un bucle infinito
@@ -70,8 +75,11 @@ document.addEventListener("DOMContentLoaded", () => {
       carouselImages.appendChild(clone);
     }
 
+    carousel.dataset.currentSlide = 0; // Inicializa el índice de la diapositiva actual en el dataset
+
     // Añade eventos a los botones de navegación
-    prevButton.addEventListener("click", () => changeSlide(-1, totalSlides, currentSlide, slideWidth, carouselImages));
-    nextButton.addEventListener("click", () => changeSlide(1, totalSlides, currentSlide, slideWidth, carouselImages));
-  }
+    prevButton.addEventListener("click", () => changeSlide(carousel, -1));
+    nextButton.addEventListener("click", () => changeSlide(carousel, 1));
+  });
 });
+
