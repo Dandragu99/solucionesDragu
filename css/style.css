@@ -1,0 +1,164 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo general */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f6f8fa;
+    color: #222;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Encabezado principal */
+header, h1 {
+    background: #2c3e50;
+    color: #fff;
+    padding: 2rem 0 1rem 0;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* Menú de navegación */
+nav {
+    background: #34495e;
+    text-align: center;
+    padding: 0.7rem 0;
+    margin-bottom: 2rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #f1c40f;
+}
+
+/* Contenedores principales */
+.contenido, .contacto, .servicio, .albanil, .especialidad {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+    padding: 2rem;
+}
+
+.contenido h2, .servicio h2, .albanil h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Imágenes de servicios y especialidad */
+.servicio img, .especialidad img {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 0.5rem 1rem 1rem 0;
+    box-shadow: 0 1px 6px rgba(44,62,80,0.10);
+    border: 1px solid #e1e4e8;
+}
+
+.servicio {
+    margin-bottom: 2rem;
+}
+
+/* Apartado de contacto y redes sociales */
+.contacto, .redes-sociales {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    border-radius: 0 0 8px 8px;
+    margin-top: 2rem;
+}
+
+.redes-sociales a {
+    color: #f1c40f;
+    margin: 0 0.7rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.redes-sociales a:hover {
+    color: #fff;
+}
+
+.contacto a, .redes-sociales a, .contenido a {
+    text-decoration: none;
+    color: #f1c40f;
+    transition: color 0.2s;
+}
+
+.contacto a:hover, .contenido a:hover {
+    color: #fff;
+}
+
+/* Botón de ir a contacto */
+.ir-contacto {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background: #f1c40f;
+    color: #2c3e50;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.ir-contacto:hover {
+    background: #2c3e50;
+    color: #f1c40f;
+}
+
+.btn-servicios {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: #f1c40f;
+    color: #2c3e50;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+}
+.btn-servicios:hover {
+    background: #2c3e50;
+    color: #f1c40f;
+}
+
+
+/* Responsive */
+@media (max-width: 700px) {
+    .contenido, .contacto, .servicio, .albanil, .especialidad {
+        padding: 1rem;
+    }
+    nav a {
+        margin: 0 0.5rem;
+        font-size: 1rem;
+    }
+    .servicio img, .especialidad img {
+        width: 100%;
+        height: auto;
+        margin: 0.5rem 0;
+    }
+}
+
+

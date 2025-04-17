@@ -1,0 +1,114 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f6f8fa;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Tarjeta del albañil */
+.albanil-card {
+    background: #fff;
+    max-width: 400px;
+    margin: 2.5rem auto 1.5rem auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+}
+
+.albanil-card h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+.especialidad {
+    margin: 1.5rem auto;
+    text-align: center;
+}
+
+.especialidad img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #f1c40f;
+    box-shadow: 0 1px 8px rgba(44,62,80,0.10);
+    margin-bottom: 1rem;
+}
+
+.especialidad p {
+    color: #34495e;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Redes sociales y contacto */
+.contacto-footer {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0 1rem 0;
+    border-radius: 0 0 10px 10px;
+    margin: 2rem auto 0 auto;
+    max-width: 400px;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+}
+
+.contacto-footer a {
+    color: #f1c40f;
+    margin: 0 0.7rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.contacto-footer a:hover {
+    color: #fff;
+}
+
+.contacto-footer p {
+    margin: 0.7rem 0;
+    font-size: 1.05rem;
+}
+
+@media (max-width: 500px) {
+    .albanil-card, .contacto-footer {
+        max-width: 95vw;
+        padding: 1rem 0.5rem;
+    }
+    .especialidad img {
+        width: 120px;
+        height: 120px;
+    }
+}
+.btn-volver {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: #2c3e50;
+    color: #f1c40f;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 1rem;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+}
+.btn-volver:hover {
+    background: #f1c40f;
+    color: #2c3e50;
+}
+
+

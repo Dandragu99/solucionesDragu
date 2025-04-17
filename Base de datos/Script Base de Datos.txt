@@ -1,0 +1,111 @@
+Aquí tienes el script SQL para crear la estructura de base de datos normalizada y profesional que propuse. Usaré MySQL/MariaDB como motor, pero puedes adaptarlo fácilmente a otros sistemas.
+
+sql
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS reformas;
+USE reformas;
+
+-- Tabla: redes sociales
+CREATE TABLE IF NOT EXISTS redes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    icono VARCHAR(50) DEFAULT 'default.svg'
+);
+
+-- Tabla: categorías (baño, salón, cocina, etc.)
+CREATE TABLE IF NOT EXISTS categorias (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL UNIQUE
+);
+
+-- Tabla: proyectos
+CREATE TABLE IF NOT EXISTS proyectos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    categoria_id INT NOT NULL,
+    fecha DATE,
+    cliente VARCHAR(100),
+    FOREIGN KEY (categoria_id) REFERENCES categorias(id)
+);
+
+-- Tabla: imágenes (relacionadas con proyectos y categorías)
+CREATE TABLE IF NOT EXISTS imagenes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ruta VARCHAR(255) NOT NULL,
+    descripcion VARCHAR(255),
+    categoria_id INT,
+    proyecto_id INT,
+    FOREIGN KEY (categoria_id) REFERENCES categorias(id),
+    FOREIGN KEY (proyecto_id) REFERENCES proyectos(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Insertar categorías básicas
+INSERT INTO categorias (nombre) VALUES
+('Baño'),
+('Salón'),
+('Cocina'),
+('Jardín'),
+('Nuevas Obras');
+
+-- Insertar datos de ejemplo en proyectos
+INSERT INTO proyectos (nombre, descripcion, categoria_id, fecha, cliente) VALUES
+('Reforma Baño Moderno', 'Reforma integral con acabados en mármol', 1, '2024-03-15', 'Cliente Anónimo'),
+('Jardín Urbano', 'Diseño de jardín vertical en terraza', 4, '2024-02-10', 'Hotel Plaza');
+
+-- Insertar imágenes de ejemplo
+INSERT INTO imagenes (ruta, descripcion, categoria_id, proyecto_id) VALUES
+('bano1.jpg', 'Vista general del baño reformado', 1, 1),
+('bano2.jpg', 'Detalle del lavabo', 1, 1),
+('jardin1.jpg', 'Jardín vertical terminado', 4, 2);
+
+-- Insertar redes sociales de ejemplo
+INSERT INTO redes (nombre, url, icono) VALUES
+('Facebook', 'https://facebook.com/tuempresa', 'facebook.svg'),
+('Instagram', 'https://instagram.com/tuempresa', 'instagram.svg'),
+('Twitter', 'https://twitter.com/tuempresa', 'twitter.svg');
+Explicación del script
+Tabla redes
+
+Almacena redes sociales con su nombre, URL e icono (para mostrar en la web).
+
+Tabla categorias
+
+Define categorías de proyectos (Baño, Salón, etc.). Evita duplicar tablas para cada tipo.
+
+Tabla proyectos
+
+Relacionada con categorias mediante categoria_id.
+
+Incluye campos como fecha y cliente para futuras funcionalidades.
+
+Tabla imagenes
+
+Puede vincularse a un proyecto y/o categoría.
+
+Ejemplo: Una imagen de un baño (categoria_id=1) pertenece al proyecto "Reforma Baño Moderno" (proyecto_id=1).
+
+¿Cómo usar este script?
+Ejecútalo en tu gestor de bases de datos (phpMyAdmin, MySQL Workbench, etc.).
+
+Personaliza los datos de ejemplo (rutas de imágenes, URLs de redes, etc.).
+
+Añade índices si necesitas optimizar consultas:
+
+sql
+CREATE INDEX idx_proyectos_categoria ON proyectos(categoria_id);
+CREATE INDEX idx_imagenes_proyecto ON imagenes(proyecto_id);
+Consulta de ejemplo
+Para obtener todas las imágenes de un proyecto con su categoría:
+
+sql
+SELECT 
+    p.nombre AS proyecto,
+    c.nombre AS categoria,
+    i.ruta AS imagen,
+    i.descripcion
+FROM proyectos p
+JOIN categorias c ON p.categoria_id = c.id
+JOIN imagenes i ON p.id = i.proyecto_id
+WHERE p.id = 1;
