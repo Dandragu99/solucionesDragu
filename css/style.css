@@ -143,6 +143,58 @@ nav a:hover {
     background: #2c3e50;
     color: #f1c40f;
 }
+/* Carrusel */
+
+.carrusel{
+    display: flex; /*Organiza los elementos hijo .prev .imagenes .next en una fila.*/
+    align-items: center; /*Alinea los elementos en el centro*/
+    justify-content: center; /* Centra el contenido de forma horizontal dentro del carrusel (importante)*/
+    gap: 1rem; /*Esto es el espacio que hay entre los elementos (botones, imágenes) a lo mejor lo quito*/
+    margin-bottom: 2rem; /*añade un espacio por debajo del carrusel para separarlo del siguiente*/
+}
+
+.carrusel .imagenes{
+    display: flex;
+    overflow: hidden; /*Esto lo que hace es "esconder" los trozos que sobran de la imagen para que quede homogeneo*/
+    gap: 10px; /* Espacio entre imágenes */
+}
+
+/* AÑADIR: Estilos para las imágenes */
+.carrusel .imagenes img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0; /* Evita que se compriman */
+    border-radius: 8px; /* Opcional: esquinas redondeadas */
+}
+
+.carrusel button{
+    background: none; /*Esto quita el fondo gris del html que viene por defecto*/
+    border: none; /*Elimina los bordes predeterminados*/
+    font-size: 2rem; /* Hace que las flechas sean visibles y grandes*/
+    cursor: pointer; /* Cambia el cursor a una manita al pasar sobre los botones*/
+    transition: color 0.3s; /*Suaviza el cambio de color al hacer hovber*/
+}
+
+.carrusel button:hover{
+    color: #f1c40f; /*Cambia el color del botón al pasar por encima, da feedback visual(bobadas que quedan chulas)*/
+}
+/* control + f5 para actualizar el caché del navegador ya que el tio es un vago 
+    pd: así si que se ven los cambios porque le dices al navegador que ignore el cache*/
+
+    /* Esta parte organiza los títulos de los carruseles. Y recuerda 1rem es escalable y px fijo(es decir, es más util)*/
+.seccion-carrusel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seccion-carrusel h2{
+    margin-bottom: 1rem;
+}
+
+
 
 
 /* Responsive */

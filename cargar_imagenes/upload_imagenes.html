@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Subir Imágenes - Admin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .upload-container {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .preview-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .preview-item {
+            text-align: center;
+        }
+        .preview-item img {
+            width: 100%;
+            max-width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #28a745;
+            width: 0%;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <h1>📤 Subir Múltiples Imágenes</h1>
+    
+    <form action="procesar_imagenes.php" method="POST" enctype="multipart/form-data" id="uploadForm">
+        <div class="form-group">
+            <label for="categoria">Categoría:</label>
+            <select name="categoria" id="categoria" required>
+                <option value="">Selecciona una categoría</option>
+                <option value="reformas">Reformas</option>
+                <option value="jardin">Jardín</option>
+                <option value="nuevas-obras">Nuevas Obras</option>
+                <option value="bano">Baño</option>
+                <option value="cocina">Cocina</option>
+                <option value="salon">Salón</option>
+            </select>
+        </div>
+
+        <div class="upload-container">
+            <label for="imagenes">📁 Seleccionar Múltiples Imágenes:</label>
+            <input type="file" name="imagenes[]" id="imagenes" multiple accept="image/*" required>
+            <p>Puedes seleccionar hasta 20 imágenes a la vez</p>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion_general">Descripción General (opcional):</label>
+            <textarea name="descripcion_general" id="descripcion_general" rows="3" placeholder="Descripción que se aplicará a todas las imágenes de este lote"></textarea>
+        </div>
+
+        <div id="preview-container" class="preview-container"></div>
+
+        <div id="progress-container" style="display: none;">
+            <p>Subiendo imágenes...</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p id="progress-text">0%</p>
+        </div>
+
+        <button type="submit" id="submitBtn">🚀 Subir Todas las Imágenes</button>
+    </form>
+
+    <script>
+        // Preview de imágenes seleccionadas
+        document.getElementById('imagenes').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const previewContainer = document.getElementById('preview-container');
+            previewContainer.innerHTML = '';
+
+            if (files.length > 20) {
+                alert('Máximo 20 imágenes por vez');
+                this.value = '';
+                return;
+            }
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const previewItem = document.createElement('div');
+                        previewItem.className = 'preview-item';
+                        previewItem.innerHTML = `
+                            <img src="${e.target.result}" alt="Preview">
+                        `;
+                        previewContainer.appendChild(previewItem);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+
+        // Simulación de progreso (en la versión real se haría con AJAX)
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            const progressContainer = document.getElementById('progress-container');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Subiendo...';
+            progressContainer.style.display = 'block';
+            
+            // Simulación de progreso
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                document.getElementById('progress-fill').style.width = progress + '%';
+                document.getElementById('progress-text').textContent = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                }
+            }, 200);
+        });
+    </script>
+</body>
+</html>
